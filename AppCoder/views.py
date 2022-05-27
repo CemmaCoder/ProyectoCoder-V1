@@ -1,10 +1,6 @@
 from datetime import datetime
-from django.shortcuts import render
 from django.shortcuts import HttpResponse
-from AppCoder.models import Curso
-from AppCoder.models import Estudiante
-from AppCoder.models import Profesor
-from AppCoder.models import Entregable
+from AppCoder.models import Curso, Estudiante, Profesor, Entregable
 import datetime
 
 def CursoView(self):
@@ -26,7 +22,7 @@ def ProfesorView(self):
     return HttpResponse(documento3)
 
 def EntregableView(self):
-    entregable = Entregable(nombre="Trabajo Practico", fechaDeEntrega=datetime.datetime.now(), entregado=1)
+    entregable = Entregable(nombre="Trabajo Practico", fechaDeEntrega=datetime.datetime.now(), entregado=True)
     entregable.save()
     documento4 = f"Entregable {entregable.nombre} - Fecha de entrega: {entregable.fechaDeEntrega} - Entregado {entregable.entregado}"
     return HttpResponse(documento4)
