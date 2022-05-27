@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.shortcuts import HttpResponse
 from AppCoder.models import Curso, Estudiante, Profesor, Entregable
+from django.template import loader
 import datetime
 
 def CursoView(self):
@@ -26,3 +27,8 @@ def EntregableView(self):
     entregable.save()
     documento4 = f"Entregable {entregable.nombre} - Fecha de entrega: {entregable.fechaDeEntrega} - Entregado {entregable.entregado}"
     return HttpResponse(documento4)
+
+def miPlantilla(self):
+    plantilla = loader.get_template("plantilla.html")
+    documento = plantilla.render()
+    return HttpResponse(documento)
