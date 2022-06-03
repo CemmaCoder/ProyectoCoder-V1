@@ -1,0 +1,17 @@
+{% extends "appCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1> PROYECTO CODER </h1>
+<h3> Formulario de Cursos </h3>
+<form acttion="{% url 'CursoFormulario' %}" method="POST"> {% csrf_token %}
+
+    <!--- 
+    <p> Curso: <input type="text" name="curso" ></p>
+    <p> Camada: <input type="number" name="camada" ></p>
+    -->
+    <table>
+        {{ miFormulario.as_table }}
+    </table>
+    <input type="submit" value="Enviar" >
+</form>
+{% endblock %}
